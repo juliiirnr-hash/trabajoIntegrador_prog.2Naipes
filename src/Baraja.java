@@ -1,5 +1,6 @@
 import enums.EnumsBaraja;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Baraja {
@@ -7,10 +8,12 @@ public class Baraja {
 //la clase baraja va a tener metodos para las acciones(barajar,repartir,sacar etc)
 
     private Carta[] baraja;
+    private int siguienteCarta;
 
     //metodo para crear el maso de cartas
     public Baraja() {
         baraja = new Carta[40];
+        siguienteCarta = 0;
         int[] numeros = {1, 2, 3, 4, 5, 6, 7, 10, 11, 12};
         int i = 0;
         for (EnumsBaraja.Palo palo : EnumsBaraja.Palo.values()) {
@@ -30,8 +33,25 @@ public class Baraja {
             baraja[j] = a;
         }
     }
+
+
     //metodo para sacar una carta
-    public Carta SacarCarta () {
-        return baraja[0];
+    public Carta SacarCarta() {
+        if (siguienteCarta >= baraja.length) {
+            return null;
         }
+
+        return baraja[siguienteCarta++];
     }
+    public int cartasDisponibles() {
+        return baraja.length - siguienteCarta;
+    }
+
+
+
+}
+
+
+
+
+

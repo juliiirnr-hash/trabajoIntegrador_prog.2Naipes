@@ -7,6 +7,7 @@ public class Menu {
         int opcion;
 
         Baraja baraja = new Baraja(); //genero la baraja
+        Repartir repartidor = new Repartir();
 
         //menu
         do {
@@ -25,14 +26,21 @@ public class Menu {
                 case 2:
                     System.out.println(baraja.SacarCarta());
                     break;
-                case 3:
-                    //ver cantidad de cartas
+                case 3://ver cantidad de cartas
+                    System.out.println("Cartas disponibles: "
+                            + baraja.cartasDisponibles());
                     break;
-                case 4:
-                    //repartir
+                case 4: //repartir
+                    System.out.println("¿Cuántas cartas quiere repartir?");
+
+                    int cantidad = menu.nextInt();
+
+                    System.out.println(
+                            repartidor.repartirCartas(baraja, cantidad)
+                    );
                     break;
                 case 5:
-                    //ver manos
+                    repartidor.mostrarRepartidas();//ver manos
                     break;
                 case 6:
                     //ver cartas restantes
