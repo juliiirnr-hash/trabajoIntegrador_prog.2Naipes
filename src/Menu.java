@@ -43,7 +43,7 @@ public class Menu {
                     repartidor.mostrarRepartidas();//ver manos
                     break;
                 case 6:
-                    //ver cartas restantes
+                    baraja.mostrarCartasDisponibles();
                     break;
                 case 7:
                     //salir

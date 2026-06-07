@@ -46,8 +46,11 @@ public class Baraja {
     public int cartasDisponibles() {
         return baraja.length - siguienteCarta;
     }
-
-
+    public void mostrarCartasDisponibles() {
+        for (int i = siguienteCarta; i < baraja.length; i++) {
+            System.out.println(baraja[i]);
+        }
+    }
 
 }
 
